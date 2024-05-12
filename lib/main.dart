@@ -1,4 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/src/audio_cache.dart';
 
 void main() {
   runApp(XylophoneApp());
@@ -10,7 +12,11 @@ void main() {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Container(),
+          child: Center(
+            child: TextButton(onPressed: () async {
+          final player = AudioPlayer();
+          await player.play(AssetSource('assets/note1.wav'));
+          }, child: Text('Click Me'))),
         ),
       ),
     );
